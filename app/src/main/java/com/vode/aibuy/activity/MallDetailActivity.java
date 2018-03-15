@@ -43,6 +43,9 @@ public class MallDetailActivity extends BaseActivity<BaseView<Goods>,MallDetailP
         rec.addItemDecoration(new DividerItemDecoration(mActivity,LinearLayoutManager.VERTICAL));
         datas = new ArrayList<>();
 
+        Goods e = new Goods();
+        e.setType(1);
+        datas.add(e);
         datas.add(new Goods());
         adapter = new MallDetalAdapter(mActivity, datas);
         adapter.showItemView();

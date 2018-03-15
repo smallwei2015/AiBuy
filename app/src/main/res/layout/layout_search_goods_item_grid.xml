@@ -16,13 +16,6 @@
         app:simple_tag_text="@string/new_goods"
         app:simple_tag_textColor="@color/bgwhite"
         />
-    <!--<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp100"
-        android:src="@color/bgdark"
-        android:id="@+id/goods_img"
-        android:layout_margin="@dimen/dp5"/>-->
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,6 +63,16 @@
                 android:text="12$"
                 android:id="@+id/mall_goods_price"/>
 
+
+            <com.vode.aibuy.userview.GoodsView
+                android:layout_width="@dimen/dp80"
+                android:layout_height="@dimen/dp30"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_toLeftOf="@+id/mall_add"
+                android:id="@+id/mall_goods_count"
+                android:background="@color/bglight"
+                />
 
             <ImageView
                 android:layout_width="@dimen/dp30"

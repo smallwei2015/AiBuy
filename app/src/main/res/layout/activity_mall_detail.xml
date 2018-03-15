@@ -25,6 +25,17 @@
         android:layout_gravity="center"
         android:textSize="@dimen/sp10"
         android:text="123"/>
+
+    <com.vode.aibuy.userview.GoodsView
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp30"
+        android:layout_gravity="center_vertical"
+        app:dividsize="@dimen/dp1"
+        app:size="@dimen/sp12"
+        app:color="@color/red"
+        android:background="@color/bgdark"
+        app:text="1"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,19 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bglight"
     tools:context="com.vode.aibuy.activity.LoginActivity">
 
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="load"
-        android:onClick="btn_load"/>
-    <TextView
+        android:layout_marginTop="@dimen/dp50"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@drawable/login_input_bg"
+        android:id="@+id/name"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/dp5"
+            android:src="@mipmap/username"/>
+
+        <EditText
+            style="@style/login_edit_style"
+            android:id="@+id/name_edit"
+            android:inputType="text"
+            android:hint="手机号"/>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/name"/>
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:background="@drawable/login_input_bg"
+        android:id="@+id/pass"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/dp5"
+            android:src="@mipmap/password"/>
+
+        <EditText
+            style="@style/login_edit_style"
+            android:id="@+id/pass_edit"
+            android:inputType="textPassword"
+            android:hint="请输入密码"/>
+    </LinearLayout>
+
+
+
+    <TextView
+        style="@style/login_btn"
+        android:text="登录"
+        android:clickable="true"
+        android:onClick="btn_login"
+        android:id="@+id/login"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/check_login"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="自动登录"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/textmiddle"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/red"
+            android:text="免费注册"/>
+
+        <VideoView
+            android:layout_width="@dimen/dp1"
+            android:layout_height="match_parent"
+            android:background="@color/bglight"
+            android:layout_margin="@dimen/dp5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/red"
+            android:text="忘记密码？"/>
+    </LinearLayout>
+</LinearLayout>

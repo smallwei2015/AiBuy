@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        style="@style/mall_title_style"
+        android:text="@string/title"
+        android:id="@+id/mall_title"
+        />
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/mall_flowlayout"
+        zhy:max_select="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mall_title"
+        android:padding="20dp">
+    </com.zhy.view.flowlayout.TagFlowLayout>
+
+</RelativeLayout>

@@ -18,4 +18,8 @@
     <color name="red_pressed">#b72e24</color>
     <color name="dark_gray_tran">#6666</color>
     <color name="light_gray_tran">#a666</color>
+
+    <color name="lightGray">#999</color>
+    <color name="xlightGray">#aaa</color>
+    <color name="xxligthGray">#ddd</color>
 </resources>

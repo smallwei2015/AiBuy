@@ -98,7 +98,7 @@ public class NotificationView extends TextView {
         textPaint.setTextAlign(Paint.Align.CENTER);
 
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        
+
         canvas.drawText(getText().toString(),width/2,height/2+(fontMetrics.bottom-fontMetrics.top)/2-fontMetrics.bottom, textPaint);
 
 

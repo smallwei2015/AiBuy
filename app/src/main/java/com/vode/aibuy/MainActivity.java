@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.vode.aibuy.activity.MallDetailActivity;
+import com.vode.aibuy.activity.SearchActivity;
 import com.vode.aibuy.fragment.GoodsListFragment;
 import com.vode.aibuy.fragment.MenuFragment;
 import com.vode.aibuy.fragment.ShoppingCartFragment;
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
-        //startActivity(new Intent(this, SearchActivity.class));
-        startActivity(new Intent(this, MallDetailActivity.class));
+        startActivity(new Intent(this, SearchActivity.class));
+        //startActivity(new Intent(this, MallDetailActivity.class));
     }
 
 

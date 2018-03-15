@@ -20,14 +20,6 @@ public class LoginActivity extends MvpActivity<LoginView,LoginPresent> implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        name = ((TextView) findViewById(R.id.name));
-
-        /*new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-
-            }
-        }, 1000);*/
 
     }
 
@@ -44,5 +36,9 @@ public class LoginActivity extends MvpActivity<LoginView,LoginPresent> implement
 
     public void btn_load(View view) {
         getPresenter().loadData();
+    }
+
+    public void btn_login(View view) {
+
     }
 }
