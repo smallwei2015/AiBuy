@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vode.aibuy.activity.MallDetailActivity"
+    android:background="@color/bglight">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mall_swip">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mall_rec"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <com.vode.aibuy.userview.NotificationView
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_gravity="center"
+        android:textSize="@dimen/sp10"
+        android:text="123"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:paddingTop="@dimen/dp5"
+            android:background="@drawable/bg_white_clickable">
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:src="@color/bgdark" />
+
+            <TextView
+                style="@style/user_gray_text_style"
+                android:text="@string/test"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:paddingTop="@dimen/dp5"
+            android:background="@drawable/bg_white_clickable">
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:src="@color/bgdark" />
+
+            <TextView
+                style="@style/user_gray_text_style"
+                android:text="@string/test"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:paddingTop="@dimen/dp5"
+            android:background="@drawable/bg_white_clickable">
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:src="@color/bgdark" />
+
+            <TextView
+                style="@style/user_gray_text_style"
+                android:text="@string/test"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_goods"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/bg_tb"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="加入购物车"
+            android:textColor="@color/bgwhite"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/pay_goods"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/bg_pay"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="立即购买"
+            android:textSize="@dimen/sp16" />
+
+
+
+    </LinearLayout>
+</FrameLayout>

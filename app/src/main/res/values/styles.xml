@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="normal_img_style">
+        <item name="android:layout_width">@dimen/dp40</item>
+        <item name="android:layout_height">@dimen/dp40</item>
+        <item name="android:padding">@dimen/dp5</item>
+    </style>
+
+    <style name="small_img_style">
+        <item name="android:layout_width">@dimen/dp35</item>
+        <item name="android:layout_height">@dimen/dp35</item>
+        <item name="android:padding">@dimen/dp5</item>
+    </style>
+
+
+    <style name="title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="goods_title_style" parent="title_style">
+        <item name="android:textColor">@color/textmiddle</item>
+        <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:padding">@dimen/dp10</item>
+    </style>
+
+    <style name="wrap_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="radio_button_style" parent="wrap_text_style">
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:textColor">@color/bgwhite</item>
+        <item name="android:background">@drawable/radio_button_bg</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="normal_white_text_style" parent="wrap_text_style">
+        <item name="android:textColor">@color/bgwhite</item>
+
+    </style>
+
+    <style name="user_linear_item_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">@dimen/dp5</item>
+    </style>
+
+    <style name="user_gray_text_style" parent="wrap_text_style">
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">@color/textmiddle</item>
+        <item name="android:text">@string/test</item>
+
+    </style>
+
+    <style name="small_img_no_padding_style">
+        <item name="android:layout_width">@dimen/dp25</item>
+        <item name="android:layout_height">@dimen/dp25</item>
+    </style>
+
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+</resources>
