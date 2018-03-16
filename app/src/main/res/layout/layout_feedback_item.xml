@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp5"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/type"
+        android:text="类型"
+        android:textColor="@color/white"
+        android:background="@drawable/orange_radio10_bg"
+        android:layout_margin="@dimen/dp5"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp15"
+        android:textColor="@color/textmiddle"
+        android:layout_toRightOf="@+id/type"
+        android:layout_alignBaseline="@id/type"
+        android:layout_margin="@dimen/dp4"
+        android:text="主题"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="@color/textdark"
+        android:layout_below="@+id/type"
+        android:layout_margin="@dimen/dp5"
+        android:id="@+id/content"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dp5"
+        android:textColor="@color/textlight"
+        android:textSize="@dimen/sp13"
+        android:text="2018.3.16 12:20:22"/>
+</RelativeLayout>

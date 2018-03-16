@@ -50,7 +50,7 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
     }
 
     public void onLeftIconClick(View view) {
-
+        finish();
     }
 
     public void onRightIconClick(View view) {
@@ -74,6 +74,8 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
         initView();
         initData();
     }
+
+
 
     public void initTop(int left, String content, int right) {
         initTop(left, content, right, -1);

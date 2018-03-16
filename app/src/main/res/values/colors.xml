@@ -22,4 +22,6 @@
     <color name="lightGray">#999</color>
     <color name="xlightGray">#aaa</color>
     <color name="xxligthGray">#ddd</color>
+    <color name="orange">#ce8507</color>
+    <color name="orange_pressed">#996203</color>
 </resources>

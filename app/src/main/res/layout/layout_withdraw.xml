@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+        <TextView
+            style="@style/feedback_title_style"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="提现金额"/>
+
+        <EditText
+            style="@style/with_edit_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/gray_input_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+        <TextView
+            style="@style/feedback_title_style"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="银行名称"/>
+
+        <EditText
+            style="@style/with_edit_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/gray_input_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+        <TextView
+            style="@style/feedback_title_style"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="收款账号"/>
+
+        <EditText
+            style="@style/with_edit_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/gray_input_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+        <TextView
+            style="@style/feedback_title_style"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="开户名"/>
+
+        <EditText
+            style="@style/with_edit_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/gray_input_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/dp5">
+        <TextView
+            style="@style/feedback_title_style"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="验证码"/>
+
+        <EditText
+            style="@style/with_edit_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/gray_input_bg"/>
+    </LinearLayout>
+
+
+    <TextView
+        style="@style/login_btn"
+        android:text="确认提交"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp5"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/with_text_style_title"
+            android:id="@+id/number"
+            android:text="编号"
+            />
+        <TextView
+            style="@style/with_text_style_title"
+            android:layout_weight="2"
+            android:text="申请日期"/>
+
+        <TextView
+            style="@style/with_text_style_title"
+            android:id="@+id/money"
+            android:text="金额"/>
+
+        <TextView
+            style="@style/with_text_style_title"
+            android:text="申请状态"/>
+
+    </LinearLayout>
+</LinearLayout>

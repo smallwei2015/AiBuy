@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vode.aibuy.activity.WalletActivity">
+
+    <include layout="@layout/layout_top"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/toolbar"
+        android:id="@id/id1"
+        android:background="@color/white"
+        android:layout_marginBottom="@dimen/dp1">
+
+
+        <LinearLayout
+            style="@style/wallet_top_item"
+            android:id="@+id/score"
+            >
+
+            <ImageView
+                style="@style/big_img_style"
+                android:src="@mipmap/score"
+                />
+
+            <TextView
+                style="@style/wallet_top_text_style"
+                android:text="0"/>
+
+
+            <TextView
+                style="@style/wallet_btn_style"
+                android:text="积分提现"
+                android:id="@+id/score_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/wallet_top_item"
+            android:id="@+id/balance"
+            >
+
+            <ImageView
+                style="@style/big_img_style"
+                android:src="@mipmap/balance"
+                />
+
+            <TextView
+                style="@style/wallet_top_text_style"
+                android:text="0.00"/>
+
+
+            <TextView
+                style="@style/wallet_btn_style"
+                android:text="余额提现"
+                android:id="@+id/balance_text"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/wallet_top_item"
+            android:id="@+id/coupon"
+            >
+            <ImageView
+                style="@style/big_img_style"
+                android:src="@mipmap/free"
+                />
+
+            <TextView
+                style="@style/wallet_top_text_style"
+                android:text="0.00"/>
+
+
+            <TextView
+                style="@style/wallet_btn_style"
+                android:text="余额充值"
+                android:id="@+id/coupon_text"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/id1"
+        android:layout_margin="@dimen/dp10"
+        android:background="@drawable/red_radio10_bg"
+        android:id="@id/id2">
+
+        <TextView
+            style="@style/wallet_text_style"
+            android:background="@drawable/wallet_text_left_bg"
+            android:text="全部"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginLeft="0.5dp"
+            android:enabled="false"
+            android:id="@+id/menu_left"/>
+        <TextView
+            style="@style/wallet_text_style"
+            android:background="@drawable/wallet_text_bg"
+            android:enabled="true"
+            android:layout_margin="0.5dp"
+            android:text="充值记录"
+            android:id="@+id/menu_center"/>
+        <TextView
+            style="@style/wallet_text_style"
+            android:background="@drawable/wallet_text_right_bg"
+            android:layout_marginRight="0.5dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginLeft="0dp"
+            android:enabled="true"
+            android:text="积分"
+            android:id="@+id/menu_right"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/id2"
+        android:id="@+id/wallet_rec"/>
+
+</RelativeLayout>

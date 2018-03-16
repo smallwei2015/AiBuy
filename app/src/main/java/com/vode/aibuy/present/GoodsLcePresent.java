@@ -1,6 +1,5 @@
 package com.vode.aibuy.present;
 
-import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.vode.aibuy.bean.Goods;
 import com.vode.aibuy.model.LoadDataInteface;
 import com.vode.aibuy.model.ModelClient;
@@ -12,7 +11,7 @@ import java.util.List;
  * Created by cj on 2018/3/12.
  */
 
-public class GoodsLcePresent extends MvpBasePresenter<GoodsLceView> implements MyBasePresent{
+public class GoodsLcePresent extends MyBasePresent<GoodsLceView> {
 
     public interface OnDataLoadedListener {
         void onDataLoaded(List<Goods> goods);
