@@ -12,6 +12,8 @@
     <color name="textdark">#333</color>
     <color name="textmiddle">#666</color>
     <color name="textlight">#999</color>
+
+    <color name="bgblack">#999</color>
     <color name="bgdark">#ccc</color>
     <color name="bglight">#eee</color>
     <color name="red">#EA4A3E</color>

@@ -1,11 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp5"
+    android:background="@color/white"
+    >
 
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cart_check"
+        android:layout_centerVertical="true"/>
     <ImageView
-        android:layout_width="@dimen/dp100"
-        android:layout_height="@dimen/dp100"
-        android:src="@color/bgdark"/>
-</android.support.constraint.ConstraintLayout>
+        style="@style/xbig_img_style"
+        android:src="@color/bgdark"
+        android:layout_toRightOf="@+id/cart_check"
+        android:id="@+id/cart_img"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp5"
+        android:paddingRight="@dimen/dp5"
+        android:layout_toRightOf="@+id/cart_img"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp15"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/textdark"
+            android:text="7月10日上午，万达商业与融创中国联合发出公告，两者在酒店、文旅方面达成了一笔高达631.7亿元的交易"
+            android:layout_weight="1"
+            android:id="@+id/cart_title"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="库存量"
+                android:textSize="@dimen/sp12"
+                android:textColor="@color/textlight"
+                android:id="@+id/mall_sale_count"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/red"
+                android:layout_below="@+id/mall_sale_count"
+                android:text="12$"
+                android:id="@+id/mall_goods_price"/>
+
+
+            <com.vode.aibuy.userview.GoodsView
+                android:layout_width="@dimen/dp80"
+                android:layout_height="@dimen/dp30"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_toLeftOf="@+id/mall_add"
+                android:id="@+id/mall_goods_count"
+                android:background="@color/bglight"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/circle_red"
+                android:layout_alignParentRight="true"
+                android:padding="@dimen/dp8"
+                android:src="@mipmap/shopping_cart"
+                android:layout_centerVertical="true"
+                android:id="@+id/mall_add"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

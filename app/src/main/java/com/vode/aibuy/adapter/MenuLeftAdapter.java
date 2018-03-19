@@ -29,7 +29,7 @@ public class MenuLeftAdapter extends CommonAdapter<Menudata> {
     public int getDatasItemType(int position, Menudata item) {
 
         if (item.getType()==1){
-            return R.layout.goods_item;
+            return R.layout.menu_right;
         }else {
             return R.layout.menu_left_item;
         }

@@ -1,14 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.vode.aibuy.fragment.ShoppingCartFragment"
     android:background="@color/bglight">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/dp5"
+        android:id="@+id/cart_top"
+        android:translationZ="@dimen/dp5">
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                style="@style/normal_img_style"
+                android:src="@mipmap/shopping_cart_gray" />
+
+
+            <com.vode.aibuy.userview.NotificationView
+                android:id="@+id/cart_goods_count"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
+                android:layout_gravity="right"
+                android:textSize="@dimen/sp10"
+                android:text="0"/>
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/cart_clear"
+            style="@style/cart_text_style"
+            android:layout_alignParentRight="true"
+            android:text="清除购物车"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/cart_buy"
+            style="@style/cart_text_style"
+            android:layout_alignParentRight="true"
+            android:text="前往结算" />
+
+        <TextView
+            android:id="@+id/cart_price"
+            style="@style/cart_text_style"
+            android:textSize="@dimen/sp16"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_toLeftOf="@+id/cart_buy"
+            android:background="@color/transparent"
+            android:text="￥0.00"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp16"
+            android:layout_toLeftOf="@+id/cart_price"
+            android:text="总价："
+            android:textColor="@color/red" />
+    </RelativeLayout>
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/swip_cart">
+        android:id="@+id/swip_cart"
+        android:layout_below="@+id/cart_top">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -18,4 +83,4 @@
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
-</FrameLayout>
+</RelativeLayout>

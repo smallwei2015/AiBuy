@@ -36,4 +36,6 @@
     <dimen name="sp10">10sp</dimen>
     <dimen name="sp12">12sp</dimen>
     <dimen name="dp8">8dp</dimen>
+    <dimen name="middle_padding">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
 </resources>

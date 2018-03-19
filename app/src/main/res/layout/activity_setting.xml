@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bglight"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp200"
+            android:scaleType="centerCrop"
+            android:src="@color/bgdark"/>
+        <ImageView
+            android:id="@+id/icon_image"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/image"
+            android:translationY="@dimen/dp040"
+            android:onClick="setUserIcon"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="@dimen/dp80"
+            android:src="@mipmap/ic_launcher"
+            />
+    </RelativeLayout>
+    <include layout="@layout/layout_top" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"
+        android:id="@+id/info"
+        android:orientation="horizontal"
+        android:background="@color/bglight"
+        android:padding="@dimen/dp1"
+        android:layout_marginTop="-20dp"
+        >
+
+
+        <LinearLayout
+            style="@style/user_info"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="阅读"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/read"
+                android:text="0"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/user_info"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分享"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/share"
+                android:text="0"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/user_info"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recommend"
+                android:text="0"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/user_info"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="动态"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/interact"
+                android:text="0"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/info"
+        >
+
+        <RelativeLayout
+            android:id="@+id/user_nickname"
+
+            style="@style/user_item_style">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="修改昵称"
+                android:textSize="@dimen/sp15" />
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/user_password"
+            style="@style/user_item_style">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="修改密码"
+                android:textSize="@dimen/sp15" />
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/user_phone"
+            style="@style/user_item_style"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="修改手机"
+                android:textSize="@dimen/sp15" />
+
+            <ImageView
+                style="@style/small_img_no_padding_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@drawable/all_btn_bg"
+            android:padding="@dimen/dp10"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="修改性别"
+                android:textSize="@dimen/sp15" />
+
+            <RadioGroup
+                android:id="@+id/user_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp25"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" 男" />
+
+                <RadioButton
+                    android:id="@+id/woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/middle_padding"
+                    android:text=" 女" />
+            </RadioGroup>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+

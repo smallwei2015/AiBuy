@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vode.aibuy.R;
+import com.vode.aibuy.activity.OrderGenerateActivity;
 import com.vode.aibuy.adapter.ShoppingCartAdapter;
 import com.vode.aibuy.bean.ShopCartGoods;
 import com.vode.aibuy.model.LoadDataInteface;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ShoppingCartFragment extends AutoFreshFragment {
+public class ShoppingCartFragment extends AutoFreshFragment implements View.OnClickListener {
 
 
     public RecyclerView recyclerView;
@@ -61,6 +62,8 @@ public class ShoppingCartFragment extends AutoFreshFragment {
         datas = new ArrayList<>();
         adapter = new ShoppingCartAdapter(activity, datas);
         recyclerView.setAdapter(adapter);
+
+        view.findViewById(R.id.cart_buy).setOnClickListener(this);
     }
 
     @Override
@@ -86,5 +89,16 @@ public class ShoppingCartFragment extends AutoFreshFragment {
             datas.add(new ArrayList<ShopCartGoods>());
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.cart_buy:
+
+                Intent intent=new Intent(activity, OrderGenerateActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.vode.aibuy.activity.ConnectionActivity;
+import com.vode.aibuy.activity.SettingActivity;
 import com.vode.aibuy.fragment.GoodsListFragment;
 import com.vode.aibuy.fragment.MenuFragment;
 import com.vode.aibuy.fragment.ShoppingCartFragment;
@@ -97,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
         //startActivity(new Intent(this, WalletActivity.class));
 
-        startActivity(new Intent(this, ConnectionActivity.class));
+        //startActivity(new Intent(this, ConnectionActivity.class));
+        //startActivity(new Intent(this, HotSearchActivity.class));
+        //startActivity(new Intent(this, CheckPhoneActivity.class));
+        //startActivity(new Intent(this, FlashActivity.class));
+
+        startActivity(new Intent(this, SettingActivity.class));
     }
 
 

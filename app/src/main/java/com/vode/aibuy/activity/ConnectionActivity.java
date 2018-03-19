@@ -20,7 +20,7 @@ import com.vode.aibuy.view.BaseView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionActivity extends BaseActivity<BaseView<List<ConnectionData>>,ConnectionPresent> implements BaseView<List<ConnectionData>> {
+public class ConnectionActivity extends BaseActivity<BaseView<List<ConnectionData>>, ConnectionPresent> implements BaseView<List<ConnectionData>> {
 
     public RecyclerView rc;
     public ArrayList<ConnectionData> datas;
@@ -53,29 +53,39 @@ public class ConnectionActivity extends BaseActivity<BaseView<List<ConnectionDat
     @Override
     void initView() {
         setContentView(R.layout.activity_connection);
-        initTop(R.mipmap.left_white,"我的人脉",-1);
+        initTop(R.mipmap.left_white, "我的人脉", -1);
 
         rc = ((RecyclerView) findViewById(R.id.connection_rec));
         layout = new LinearLayoutManager(mActivity);
         rc.setLayoutManager(layout);
         rc.addItemDecoration(new RecyclerView.ItemDecoration() {
-            public int dividerHeight=5;
+            public int dividerHeight = 10;
 
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
 
-                //int position = parent.getChildAdapterPosition(view);
-                ConnectionData data = (ConnectionData) view.getTag();
 
-                if (data != null) {
-                    if (data.getType()==0) {
-                        outRect.bottom=20;
-                    }else {
-                        outRect.bottom=5;
-                    }
-                }else {
-                    outRect.bottom=dividerHeight;
+                int position = parent.getChildAdapterPosition(view);
+
+                //ConnectionData data = (ConnectionData) view.getTag();
+                /*RecyclerView.LayoutManager manager = parent.getLayoutManager();
+                int childPosition = parent.getChildAdapterPosition(view);
+                int itemCount = parent.getAdapter().getItemCount();*/
+                if (position > 0) {
+                    ConnectionData data = datas.get(position);
+
+                    /*if (data != null) {
+                        if (data.getType() == 0) {
+                            //outRect.bottom = 20;
+                            dividerHeight=20;
+                        } else {
+                            //outRect.bottom = 5;
+                            dividerHeight=5;
+                        }
+                    }*/
+                    outRect.bottom = dividerHeight;
+
                 }
             }
 
@@ -104,7 +114,7 @@ public class ConnectionActivity extends BaseActivity<BaseView<List<ConnectionDat
         adapter.setOnItemClickListener(new OnItemClickListener<ConnectionData>() {
             @Override
             public void onItemClick(ViewHolder<ConnectionData> holder, ConnectionData item, int position) {
-                if (item.getType()==0){
+                if (item.getType() == 0) {
                     UIUtils.showToast("click");
                 }
             }

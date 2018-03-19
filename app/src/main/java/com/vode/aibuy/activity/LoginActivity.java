@@ -31,7 +31,7 @@ public class LoginActivity extends MvpActivity<LoginView,LoginPresent> implement
 
     @Override
     public void loginSucccess(User user) {
-        name.setText(user.getName());
+        name.setText(user.getUserName());
     }
 
     public void btn_load(View view) {
