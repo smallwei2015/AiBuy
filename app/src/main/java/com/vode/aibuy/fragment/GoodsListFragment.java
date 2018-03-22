@@ -65,6 +65,14 @@ public class GoodsListFragment extends BaseFragment {
         e1.setType(1);
         datas.add(e1);
 
+
+        Goods e2 = new Goods();
+        e2.setType(3);
+        datas.add(e2);
+
+        Goods e3 = new Goods();
+        e3.setType(4);
+        datas.add(e3);
         for (int i = 0; i < 2; i++) {
             Goods e = new Goods();
             e.setType(0);

@@ -39,7 +39,7 @@ public class FeedBackActivity extends BaseActivity<BaseView<List<Feedback>>,Feed
     @Override
     void initView() {
         setContentView(R.layout.activity_feed_back);
-
+        initTop(R.mipmap.left_white,"反馈",-1);
         rec = ((RecyclerView) findViewById(R.id.feedback_rec));
         rec.setLayoutManager(new LinearLayoutManager(mActivity));
         rec.addItemDecoration(new DividerItemDecoration(mActivity, LinearLayout.VERTICAL));

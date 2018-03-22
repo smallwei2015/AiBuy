@@ -93,6 +93,10 @@ public class GoodsAdapter  extends CommonAdapter<Goods> {
             case 2:
                 return R.layout.goods_head_scroll;
 
+            case 3:
+                return R.layout.goods_head_menu;
+            case 4:
+                return R.layout.goods_head_table;
             default:
                 return R.layout.goods_item;
 

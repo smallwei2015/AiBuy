@@ -38,4 +38,8 @@
     <dimen name="dp8">8dp</dimen>
     <dimen name="middle_padding">10dp</dimen>
     <dimen name="dp15">15dp</dimen>
+    <dimen name="sp40">40sp</dimen>
+    <dimen name="sp60">60sp</dimen>
+    <dimen name="dp300">300dp</dimen>
+    <dimen name="dp120">120dp</dimen>
 </resources>

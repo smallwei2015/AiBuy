@@ -11,13 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.vode.aibuy.activity.SettingActivity;
+import com.vode.aibuy.activity.DescriptionActivity;
 import com.vode.aibuy.fragment.GoodsListFragment;
 import com.vode.aibuy.fragment.MenuFragment;
 import com.vode.aibuy.fragment.ShoppingCartFragment;
 import com.vode.aibuy.fragment.UserCenterFragment;
 import com.vode.aibuy.utils.BottomNavigationViewHelper;
 import com.vode.aibuy.utils.PhoneUtils;
+import com.vode.aibuy.utils.UIUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public MenuFragment menuFragment;
     public ShoppingCartFragment cartFragment;
     public UserCenterFragment userCenterFragment;
+    public long lastTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +104,30 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this, CheckPhoneActivity.class));
         //startActivity(new Intent(this, FlashActivity.class));
 
-        startActivity(new Intent(this, SettingActivity.class));
+        //startActivity(new Intent(this, SettingActivity.class));
+        //startActivity(new Intent(this, OrderActivity.class));
+        //startActivity(new Intent(this, CommentActivity.class));
+
+        //startActivity(new Intent(this, CommentDetailActivity.class));
+        //startActivity(new Intent(this, CouponActivity.class));
+        startActivity(new Intent(this, DescriptionActivity.class));
+
     }
 
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        long timeMillis = System.currentTimeMillis();
+        if (timeMillis- lastTime <1000){
+            finish();
+        }else if (timeMillis-lastTime>3000){
+            UIUtils.showToast("再次点击退出");
+            lastTime =timeMillis;
+        }else {
+            lastTime =timeMillis;
 
+        }
+
+    }
 }

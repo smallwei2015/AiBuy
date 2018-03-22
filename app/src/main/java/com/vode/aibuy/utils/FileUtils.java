@@ -1,8 +1,7 @@
 package com.vode.aibuy.utils;
 
+import android.os.Environment;
 import android.text.TextUtils;
-
-import com.vode.aibuy.BaseApplication;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,7 +17,7 @@ public class FileUtils {
     //    public static final String CACHEPATH = Environment.getExternalStorageDirectory().getAbsolutePath()
 //            + File.separator
 //            + InfoUtils.getAppName(BaseApplication.getInstance());
-    public static final String CACHEPATH = BaseApplication.getInstance().getCacheDir().getAbsolutePath();
+    public static final String CACHEPATH = Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"Aibuy";
     //错误日志路径
     public static final String LOGPATH = CACHEPATH + File.separator + "log_err.txt";
 

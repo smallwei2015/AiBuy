@@ -7,16 +7,16 @@
     android:background="@color/bglight"
     tools:context="com.vode.aibuy.activity.SearchActivity">
 
-    <include layout="@layout/layout_common_input"/>
+    <include layout="@layout/layout_search_input"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/search_view"
+        android:layout_below="@+id/search"
         android:id="@id/id1">
-        <TableLayout
+        <android.support.design.widget.TabLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"

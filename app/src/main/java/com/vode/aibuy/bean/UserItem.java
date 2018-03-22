@@ -10,6 +10,15 @@ public class UserItem implements Serializable {
     private String title;
     private int src;
 
+    public UserItem(String title) {
+        this.title = title;
+    }
+
+    public UserItem(String title, int src) {
+        this.title = title;
+        this.src = src;
+    }
+
     public String getTitle() {
         return title;
     }

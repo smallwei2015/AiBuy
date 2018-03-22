@@ -1,5 +1,6 @@
 package com.vode.aibuy.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,19 +40,35 @@ public class SearchActivity extends BaseActivity<BaseView<List<Goods>>, SearchAc
     void initView() {
         setContentView(R.layout.activity_search);
 
-        search = findViewById(R.id.search_edit);
+
+        findViewById(R.id.search_left).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        search = findViewById(R.id.top_search_edit);
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 switch (actionId) {
                     case EditorInfo.IME_ACTION_SEARCH:
-                        UIUtils.showToast("searching...");
+                        UIUtils.showToast("搜索中...");
                         loadSuccess(null);
                         break;
                 }
                 return false;
             }
         });
+
+        findViewById(R.id.top_search_select).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mActivity,SearchConditionActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         rec = findViewById(R.id.rec_search);
         rec.setLayoutManager(new LinearLayoutManager(mActivity));

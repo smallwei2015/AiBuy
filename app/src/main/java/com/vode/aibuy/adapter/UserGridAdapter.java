@@ -46,7 +46,6 @@ public class UserGridAdapter extends ArrayAdapter<UserItem> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(resource, parent, false);
         }

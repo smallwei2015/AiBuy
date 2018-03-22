@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.vode.aibuy.activity.SearchConditionActivity"
+    android:background="@color/bglight">
+
+    <include layout="@layout/layout_top"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/condition_rec"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            style="@style/connection_title_style"
+            android:text="其他条件"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:padding="@dimen/dp5"
+            >
+
+            <CheckBox
+                style="@style/grid_item_style"
+                android:textColor="@color/textmiddle"
+                android:text="显示全部"/>
+
+            <CheckBox
+                style="@style/grid_item_style"
+                android:text="自营网站"
+                android:textColor="@color/textmiddle" />
+
+            <CheckBox
+                style="@style/grid_item_style"
+                android:textColor="@color/textmiddle"
+                android:text="加密商家"/>
+        </GridLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:translationZ="@dimen/dp5">
+
+        <TextView
+            style="@style/login_btn_multi"
+            android:id="@+id/condition_cancel"
+            android:background="@drawable/login_sure_bg_cancel"
+            android:text="取消" />
+        <TextView
+            style="@style/login_btn_multi"
+            android:id="@+id/condition_sure"
+            android:text="确定" />
+    </LinearLayout>
+
+
+</LinearLayout>

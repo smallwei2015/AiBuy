@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.vode.aibuy.activity.CommentActivity">
+
+    <include layout="@layout/layout_top"/>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabTextColor="@color/textlight"
+        app:tabSelectedTextColor="@color/red"
+        app:tabTextAppearance="@android:style/TextAppearance.Holo.Medium"
+        android:id="@+id/comment_tab"
+        android:translationZ="@dimen/dp2"
+        android:background="@color/white"/>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/comment_pager"/>
+
+</LinearLayout>

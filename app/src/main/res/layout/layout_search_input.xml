@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbarSize"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:id="@+id/search"
+    android:translationZ="@dimen/dp2">
+
+
+    <ImageView
+        style="@style/xsmall_img_style"
+        android:src="@mipmap/left_gray"
+        android:id="@+id/search_left"/>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="@dimen/dp5"
+        >
+
+
+        <EditText
+            android:id="@+id/top_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_gray_dp5"
+            android:cursorVisible="false"
+            android:hint="请输入关键字"
+            android:lines="1"
+            android:paddingLeft="@dimen/dp40"
+            android:textColor="@color/textmiddle"
+            android:textColorHint="@color/textlight"
+            android:textSize="@dimen/sp16"
+            android:imeOptions="actionSearch"
+            android:textCursorDrawable="@color/colorPrimary"
+            android:singleLine="true"/>
+
+        <ImageView
+            android:id="@+id/top_search_go"
+            style="@style/xsmall_img_style"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/searchicon" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/top_search_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:padding="@dimen/dp10"
+        android:text="筛选"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sp16" />
+</LinearLayout>

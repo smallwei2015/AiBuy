@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" /> <!-- 使用照相机权限 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
+
 
     <!-- 银联权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -30,7 +35,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.vode.aibuy.fileprovider"
@@ -126,7 +130,15 @@
         <activity android:name=".activity.OrderGenerateActivity" />
         <activity android:name=".activity.MyAddressActivity" />
         <activity android:name=".activity.AddAddressActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.OrderActivity" />
+        <activity android:name=".activity.CollectionActivity" />
+        <activity android:name=".activity.CommentActivity" />
+        <activity android:name=".activity.CommentDetailActivity" />
+        <activity android:name=".activity.CouponActivity" />
+        <activity android:name=".activity.BalanceActivity" />
+        <activity android:name=".activity.SearchConditionActivity" />
+        <activity android:name=".activity.DescriptionActivity"></activity>
     </application>
 
 </manifest>

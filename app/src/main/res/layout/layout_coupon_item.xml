@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp150"
+    android:layout_margin="@dimen/dp10"
+    android:padding="@dimen/dp10"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥10"
+        android:textSize="@dimen/sp60"
+        android:textColor="@color/textlight"
+        android:id="@+id/coupon_number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/coupon_number"
+        android:layout_margin="@dimen/dp10"
+        android:id="@id/id1"
+        android:text="消费满"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/coupon_number"
+        android:layout_below="@+id/id1"
+        android:layout_marginLeft="@dimen/dp10"
+        android:text="1000使用"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp12"
+        android:textColor="@color/textlight"
+        android:text="使用日期"
+        android:layout_margin="@dimen/dp10"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp40"
+        android:paddingRight="@dimen/dp40"
+        android:paddingTop="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dp10"
+        android:text="￥5.00"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/white"
+        android:background="@drawable/radio_trans_gray"
+        />
+</RelativeLayout>

@@ -5,14 +5,24 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="@dimen/dp5">
+    android:background="@color/white"
+    >
 
     <ImageView
-        style="@style/small_img_style"
+        style="@style/small_img_no_padding_style"
+        android:layout_marginTop="@dimen/dp5"
         android:src="@color/bgdark"
         android:id="@+id/img"/>
 
-    <TextView style="@style/user_gray_text_style"
+    <TextView style="@style/wrap_text_style"
+        android:text="我的订单"
+        android:textColor="@color/textmiddle"
+        android:textSize="@dimen/sp14"
+        android:layout_marginBottom="@dimen/dp5"
         android:id="@+id/title"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="@color/bglight"/>
 </LinearLayout>

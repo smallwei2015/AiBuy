@@ -2,12 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bglight">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bglight"
+
         android:orientation="vertical"
         tools:context="com.vode.aibuy.fragment.UserCenterFragment">
 
@@ -16,41 +17,54 @@
             android:layout_height="@dimen/dp200"
             android:background="@color/bgwhite">
 
-            <TextView
-                android:id="@+id/textView"
-                style="@style/radio_button_style"
-                android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/dp10"
-                android:text="@string/setting" />
-
-            <TextView
-                android:id="@+id/user_name"
-                style="@style/normal_white_text_style"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp50"
-                android:text="name"
-                android:textSize="@dimen/sp16" />
-
-
-            <TextView
-                style="@style/normal_white_text_style"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_above="@+id/id1"
-                android:layout_toRightOf="@+id/user_icon"
-                android:text="@string/test"
-                android:textSize="@dimen/sp14" />
+                android:background="@mipmap/userbg">
+                <TextView
+                    android:id="@+id/user_setting"
+                    style="@style/radio_button_style"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/dp10"
+                    android:text="@string/setting"
+                    />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    style="@style/normal_white_text_style"
+                    android:layout_centerInParent="true"
+                    android:text="用户名"
+                    android:textSize="@dimen/sp16" />
+
+
+                <TextView
+                    style="@style/normal_white_text_style"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:lines="1"
+                    android:id="@+id/user_date"
+                    android:textSize="@dimen/sp14" />
+
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/user_icon"
                 android:layout_width="@dimen/dp80"
                 android:layout_height="@dimen/dp80"
                 android:layout_above="@+id/id1"
-                android:layout_marginBottom="@dimen/dp040"
+                android:translationY="@dimen/dp40"
+                android:translationZ="@dimen/dp5"
+                android:elevation="@dimen/dp5"
                 android:layout_marginLeft="@dimen/dp20"
                 android:layout_marginRight="@dimen/dp20"
+                android:transitionName="@string/tran_name"
                 android:src="@color/bgdark" />
 
             <LinearLayout
-                android:id="@+id/id1"
+                android:id="@id/id1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp60"
                 android:layout_alignParentBottom="true"
@@ -59,51 +73,61 @@
 
 
                 <View
-                    android:layout_width="@dimen/dp150"
+                    android:layout_width="@dimen/dp120"
                     android:layout_height="match_parent" />
 
-                <LinearLayout style="@style/user_linear_item_style">
+                <LinearLayout style="@style/user_linear_item_style"
+                    android:id="@+id/user_order_parent">
 
                     <TextView
                         style="@style/wrap_text_style"
                         android:text="1"
                         android:textColor="@color/textmiddle"
-                        android:textSize="@dimen/sp15" />
+                        android:textSize="@dimen/sp15"
+
+                        android:id="@+id/user_order"/>
 
                     <TextView
                         style="@style/wrap_text_style"
-                        android:text="@string/test"
+                        android:text="我的订单"
+                        android:textColor="@color/textdark"
+                        android:textSize="@dimen/sp14" />
+                </LinearLayout>
+                <View
+                    style="@style/coloum_split_style"/>
+                <LinearLayout style="@style/user_linear_item_style"
+                    android:id="@+id/user_collect_parent">
+
+                    <TextView
+                        style="@style/wrap_text_style"
+                        android:text="1"
+                        android:textColor="@color/textmiddle"
+                        android:textSize="@dimen/sp15"
+                        android:id="@+id/user_collect"/>
+
+                    <TextView
+                        style="@style/wrap_text_style"
+                        android:text="我的收藏"
                         android:textColor="@color/textdark"
                         android:textSize="@dimen/sp14" />
                 </LinearLayout>
 
-                <LinearLayout style="@style/user_linear_item_style">
+
+                <View
+                    style="@style/coloum_split_style"/>
+                <LinearLayout style="@style/user_linear_item_style"
+                    android:id="@+id/user_comment_parent">
 
                     <TextView
                         style="@style/wrap_text_style"
                         android:text="1"
                         android:textColor="@color/textmiddle"
-                        android:textSize="@dimen/sp15" />
+                        android:textSize="@dimen/sp15"
+                        android:id="@+id/user_comment"/>
 
                     <TextView
                         style="@style/wrap_text_style"
-                        android:text="@string/test"
-                        android:textColor="@color/textdark"
-                        android:textSize="@dimen/sp14" />
-                </LinearLayout>
-
-
-                <LinearLayout style="@style/user_linear_item_style">
-
-                    <TextView
-                        style="@style/wrap_text_style"
-                        android:text="1"
-                        android:textColor="@color/textmiddle"
-                        android:textSize="@dimen/sp15" />
-
-                    <TextView
-                        style="@style/wrap_text_style"
-                        android:text="@string/test"
+                        android:text="我的评价"
                         android:textColor="@color/textdark"
                         android:textSize="@dimen/sp14" />
                 </LinearLayout>
@@ -116,61 +140,73 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
             android:background="@color/bgwhite"
+            android:padding="@dimen/dp5"
             android:orientation="horizontal">
 
             <LinearLayout
                 style="@style/user_linear_item_style"
-                android:layout_margin="@dimen/dp5">
+                android:id="@+id/user_balance_parent"
+                android:layout_margin="@dimen/dp5"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/sp_12" />
+                    android:textSize="@dimen/sp_12"
+
+                    android:id="@+id/user_balance"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/test"
+                    android:text="余额"
                     android:textColor="@color/textlight"
                     android:textSize="@dimen/sp13" />
             </LinearLayout>
-
+            <View
+                style="@style/coloum_split_style"/>
             <LinearLayout
                 style="@style/user_linear_item_style"
-                android:layout_margin="@dimen/dp5">
+                android:layout_margin="@dimen/dp5"
+                android:id="@+id/user_coupon_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/sp_12" />
+                    android:textSize="@dimen/sp_12"
+
+                    android:id="@+id/user_coupon"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/test"
+                    android:text="卡/券"
                     android:textColor="@color/textlight"
                     android:textSize="@dimen/sp13" />
             </LinearLayout>
-
+            <View
+                style="@style/coloum_split_style"/>
             <LinearLayout
                 style="@style/user_linear_item_style"
-                android:layout_margin="@dimen/dp5">
+                android:layout_margin="@dimen/dp5"
+                android:id="@+id/user_score_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/sp_12" />
+                    android:textSize="@dimen/sp_12"
+                    android:id="@+id/user_score"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/test"
+                    android:text="积分"
                     android:textColor="@color/textlight"
                     android:textSize="@dimen/sp13" />
             </LinearLayout>
@@ -199,7 +235,8 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="查看全部订单>"
-                android:textSize="@dimen/sp_12" />
+                android:textSize="@dimen/sp_12"
+                android:id="@+id/user_allorder"/>
         </LinearLayout>
 
         <LinearLayout
@@ -210,59 +247,105 @@
             android:orientation="horizontal">
 
 
-            <LinearLayout style="@style/user_linear_item_style">
+            <LinearLayout style="@style/user_linear_item_style"
+                android:id="@+id/user_order1">
 
-                <ImageView
-                    style="@style/small_img_style"
-                    android:src="@color/bgdark" />
-
-                <TextView style="@style/user_gray_text_style" />
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/user_linear_item_style">
-
-
-                <RelativeLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/small_img_style"
-                        android:src="@color/bgdark" />
+                        android:src="@mipmap/order1" />
 
-                    <TextView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:background="@drawable/bg_red_circle_10"
-                        android:gravity="center"
+                    <com.vode.aibuy.userview.NotificationView
+                        style="@style/notification_style"
+                        app:noti_size="@dimen/sp10"
                         android:text="1"
-                        android:textColor="@color/bgwhite"
-                        android:textSize="@dimen/sp10" />
-                </RelativeLayout>
+                        android:id="@+id/user_order1_count"
+                        />
 
+                </FrameLayout>
 
-                <TextView style="@style/user_gray_text_style" />
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/user_linear_item_style">
-
-                <ImageView
-                    style="@style/small_img_style"
-                    android:src="@color/bgdark" />
-
-                <TextView style="@style/user_gray_text_style" />
+                <TextView style="@style/user_gray_text_style"
+                    android:text="待付款"/>
 
             </LinearLayout>
 
-            <LinearLayout style="@style/user_linear_item_style">
+            <LinearLayout style="@style/user_linear_item_style"
+                android:id="@+id/user_order2">
 
-                <ImageView
-                    style="@style/small_img_style"
-                    android:src="@color/bgdark" />
 
-                <TextView style="@style/user_gray_text_style" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/small_img_style"
+                        android:src="@mipmap/order2" />
+
+                    <com.vode.aibuy.userview.NotificationView
+                        style="@style/notification_style"
+                        app:noti_size="@dimen/sp10"
+                        android:text="1"
+                        android:id="@+id/user_order2_count"
+                        />
+
+                </FrameLayout>
+
+
+                <TextView style="@style/user_gray_text_style"
+                    android:text="待发货"/>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/user_linear_item_style"
+                android:id="@+id/user_order3">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/small_img_style"
+                        android:src="@mipmap/order3" />
+
+                    <com.vode.aibuy.userview.NotificationView
+                        style="@style/notification_style"
+                        app:noti_size="@dimen/sp10"
+                        android:text="1"
+                        android:id="@+id/user_order3_count"
+                        />
+
+                </FrameLayout>
+
+                <TextView style="@style/user_gray_text_style"
+                    android:text="待收货"/>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/user_linear_item_style"
+                android:id="@+id/user_order4">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/small_img_style"
+                        android:src="@mipmap/order4" />
+
+                    <com.vode.aibuy.userview.NotificationView
+                        style="@style/notification_style"
+                        app:noti_size="@dimen/sp10"
+                        android:text="1"
+                        android:id="@+id/user_order4_count"
+                        />
+
+                </FrameLayout>
+
+                <TextView style="@style/user_gray_text_style"
+                    android:text="待退款"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -273,8 +356,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
-            android:background="@color/bgwhite"
-
+            android:background="@color/white"
             android:numColumns="4" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

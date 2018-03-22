@@ -74,18 +74,5 @@ public class BaseApplication extends Application {
         return mActivitys;
     }
 
-    public static void addActivity(Activity activity) {
-        mActivitys.add(activity);
-    }
-
-    public static void removeActivity(Activity activity) {
-        mActivitys.remove(activity);
-    }
-
-    public static void exit() {
-        for (Activity activity : mActivitys) {
-            activity.finish();
-        }
-    }
 
 }

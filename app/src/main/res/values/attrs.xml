@@ -8,5 +8,8 @@
         <attr name="text" format="string"/>
         <attr name="dividsize" format="dimension"/>
     </declare-styleable>
+    <declare-styleable name="NotificationView">
+        <attr name="noti_size" format="dimension"/>
+    </declare-styleable>
 
 </resources>

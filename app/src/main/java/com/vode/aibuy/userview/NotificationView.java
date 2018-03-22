@@ -3,6 +3,7 @@ package com.vode.aibuy.userview;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
@@ -21,6 +22,7 @@ import com.vode.aibuy.R;
 public class NotificationView extends TextView {
     private int width;
     private int height;
+    public float dimension;
 
     public NotificationView(Context context) {
         super(context);
@@ -28,6 +30,14 @@ public class NotificationView extends TextView {
 
     public NotificationView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initAttr(attrs);
+    }
+
+    private void initAttr(AttributeSet attrs) {
+        Context context = getContext();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NotificationView);
+
+        dimension = typedArray.getDimension(R.styleable.NotificationView_noti_size, 20);
     }
 
     public NotificationView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -68,8 +78,8 @@ public class NotificationView extends TextView {
 
 
 
-        width = getMySize(40, widthMeasureSpec);
-        height = getMySize(40, heightMeasureSpec);
+        width = getMySize(20, widthMeasureSpec);
+        height = getMySize(20, heightMeasureSpec);
 
         if (width>height){
             height=width;
@@ -94,16 +104,32 @@ public class NotificationView extends TextView {
 
         float textsizePX = getResources().getDisplayMetrics().scaledDensity * textSize + 0.5f;
         TextPaint textPaint = getPaint();
+        textPaint.setTextSize(dimension);
         textPaint.setColor(getResources().getColor(R.color.bgwhite));
         textPaint.setTextAlign(Paint.Align.CENTER);
 
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
 
-        canvas.drawText(getText().toString(),width/2,height/2+(fontMetrics.bottom-fontMetrics.top)/2-fontMetrics.bottom, textPaint);
+        String num = getText().toString();
+        if (Integer.parseInt(num)>99){
+            num="99";
+        }
+        canvas.drawText(num,width/2,height/2+(fontMetrics.bottom-fontMetrics.top)/2-fontMetrics.bottom, textPaint);
 
 
         //super.onDraw(canvas);
 
 
+    }
+
+
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        super.setText(text, type);
+        if (text.toString().equals("0")){
+            setVisibility(GONE);
+        }else {
+            setVisibility(VISIBLE);
+        }
     }
 }

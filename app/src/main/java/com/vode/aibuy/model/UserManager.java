@@ -15,11 +15,10 @@ import com.vode.aibuy.bean.User;
 
 public class UserManager {
 
-    public static final String action_in = "com.rcchina.login";
-    public static final String action_out = "com.rcchina.login_out";
-    public static final String action_change = "com.rcchina.change";
+    public static final String action_in = "com.aibuy.login";
+    public static final String action_out = "com.aibuy.login_out";
+    public static final String action_change = "com.aibuy.change";
 
-    public static final String action_cityChange = "com.rcchina.city_change";
     private static User cUser;
 
     public static User getUser() {

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -110,6 +110,19 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp40</item>
         <item name="android:textSize">@dimen/sp18</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_margin">@dimen/dp10</item>
+        <item name="android:background">@drawable/login_sure_bg</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+
+    <style name="login_btn_multi">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/dp35</item>
+        <item name="android:textSize">@dimen/sp16</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_margin">@dimen/dp10</item>
         <item name="android:background">@drawable/login_sure_bg</item>
@@ -307,6 +320,40 @@
         <item name="android:padding">@dimen/dp10</item>
         <item name="android:background">@drawable/all_btn_bg</item>
         <item name="android:layout_marginBottom">@dimen/dp1</item>
+    </style>
+
+    <style name="menu_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:textColor">@color/textmiddle</item>
+
+    </style>
+
+    <style name="grid_item_style">
+
+        <item name="android:layout_margin">@dimen/dp1</item>
+
+    </style>
+
+    <style name="coloum_split_style">
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/dp5</item>
+        <item name="android:layout_marginBottom">@dimen/dp5</item>
+        <item name="android:background">@color/bgcolor</item>
+
+    </style>
+
+    <style name="notification_style">
+        <item name="android:layout_width">@dimen/dp15</item>
+        <item name="android:layout_height">@dimen/dp15</item>
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+    <style name="normal_img_nopaddin_style">
+        <item name="android:layout_width">@dimen/dp30</item>
+        <item name="android:layout_height">@dimen/dp30</item>
     </style>
 
     <dimen name="dp30">30dp</dimen>

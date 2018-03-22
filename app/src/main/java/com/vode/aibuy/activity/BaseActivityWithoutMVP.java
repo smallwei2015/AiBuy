@@ -100,7 +100,7 @@ public abstract class BaseActivityWithoutMVP extends AppCompatActivity{
                 StatusBarUtils.setWindowStatusBarColor(this, bgColor);
             } else {
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                StatusBarUtils.setWindowStatusBarColor(this, R.color.colorPrimary);
+                StatusBarUtils.setWindowStatusBarColor(this, R.color.colorPrimaryDark);
             }
 
             ImageView rightIcon = findViewById(R.id.right_icon);
