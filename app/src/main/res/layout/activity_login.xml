@@ -9,6 +9,7 @@
     tools:context="com.vode.aibuy.activity.LoginActivity">
 
 
+    <include layout="@layout/layout_top"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +56,11 @@
     </LinearLayout>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp50"/>
+
 
     <TextView
         style="@style/login_btn"
@@ -90,12 +96,13 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp14"
             android:textColor="@color/red"
-            android:text="免费注册"/>
+            android:text="免费注册"
+            android:onClick="btn_register"/>
 
-        <VideoView
+        <View
             android:layout_width="@dimen/dp1"
             android:layout_height="match_parent"
-            android:background="@color/bglight"
+            android:background="@color/bgdark"
             android:layout_margin="@dimen/dp5"/>
 
         <TextView
@@ -103,6 +110,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp14"
             android:textColor="@color/red"
-            android:text="忘记密码？"/>
+            android:text="忘记密码？"
+            android:onClick="btn_forget"/>
     </LinearLayout>
 </LinearLayout>

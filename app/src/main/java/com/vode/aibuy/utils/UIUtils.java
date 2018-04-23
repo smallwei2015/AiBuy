@@ -236,4 +236,7 @@ public class UIUtils {
         return result;
     }
 
+    public static void showError() {
+        showToast("网络请求失败");
+    }
 }

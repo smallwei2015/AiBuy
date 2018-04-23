@@ -10,10 +10,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitApi {
 
+    public static final String BASE="http://app.everygou.cn/";
+    public static final String BASE_TRUE="http://www.everygou.cn/";
 
     public static Retrofit build(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://gank.io/")
+                .baseUrl(BASE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();

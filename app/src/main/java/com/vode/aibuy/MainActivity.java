@@ -9,9 +9,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.vode.aibuy.activity.DescriptionActivity;
+import com.vode.aibuy.activity.LoginActivity;
 import com.vode.aibuy.fragment.GoodsListFragment;
 import com.vode.aibuy.fragment.MenuFragment;
 import com.vode.aibuy.fragment.ShoppingCartFragment;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_main);
 
         manager = getSupportFragmentManager();
@@ -110,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
 
         //startActivity(new Intent(this, CommentDetailActivity.class));
         //startActivity(new Intent(this, CouponActivity.class));
-        startActivity(new Intent(this, DescriptionActivity.class));
+        //startActivity(new Intent(this, DescriptionActivity.class));
+
+        startActivity(new Intent(this, LoginActivity.class));
 
     }
 

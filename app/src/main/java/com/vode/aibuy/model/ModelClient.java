@@ -1,13 +1,16 @@
 package com.vode.aibuy.model;
 
 import com.vode.aibuy.bean.Goods;
-import com.vode.aibuy.bean.Repo;
+import com.vode.aibuy.bean.Result1;
 import com.vode.aibuy.bean.ShopCartGoods;
 import com.vode.aibuy.bean.User;
 import com.vode.aibuy.utils.RetrofitApi;
 import com.vode.aibuy.utils.RetrofitInteface;
+import com.vode.aibuy.utils.SignUtils;
+import com.vode.aibuy.utils.UIUtils;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,23 +25,110 @@ import rx.schedulers.Schedulers;
 
 public class ModelClient {
 
-    static RetrofitInteface retrofit = RetrofitApi.build().create(RetrofitInteface.class);
+    public static RetrofitInteface retrofit = RetrofitApi.build().create(RetrofitInteface.class);
 
 
-    public static void loadUser(final LoadDataInteface<User> user) {
-        retrofit.getAndroidInfo().enqueue(new Callback<Repo>() {
-            @Override
-            public void onResponse(Call<Repo> call, Response<Repo> response) {
-                List<Repo.ResultsBean> results = response.body().getResults();
+    public static void loadUser(String name, String pass,
+                                final LoadDataInteface<User> user) {
 
 
-            }
+        Map<String, String> map = SignUtils.getMap();
 
-            @Override
-            public void onFailure(Call<Repo> call, Throwable t) {
+        map.put("username", name);
+        map.put("password", pass);
 
-            }
-        });
+        String result = SignUtils.getResult(map);
+
+        retrofit.userLogin(result)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1<User>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UIUtils.showToast("网络连接失败" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(Result1<User> userResult1) {
+                        User body = userResult1.getResult();
+                        user.onDataLoaded(body);
+                    }
+                });
+    }
+
+    public static void changePass(String password,
+                                  String old_password,
+                                  String new_password,
+                                  String user_id) {
+
+        Map<String, String> map = SignUtils.getMap();
+        map.put("password", password);
+        map.put("old_password", old_password);
+        map.put("new_password", new_password);
+        map.put("user_id", user_id);
+
+        String result = SignUtils.getResult(map, 2);
+
+        retrofit.userChange(result).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UIUtils.showError();
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+                        if (result1.getCode()==200) {
+                            UIUtils.showToast("修改成功");
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                        }
+                    }
+                });
+    }
+
+    public static void loginOut(String user_id){
+
+        Map<String, String> map = SignUtils.getMap();
+        map.put("user_id",user_id);
+
+
+        String result = SignUtils.getResult(map, 2);
+
+
+        retrofit.userOut(result).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UIUtils.showError();
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+                        if (result1.getCode()==200){
+
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                        }
+                    }
+                });
     }
 
     public static void loadGoods(final LoadDataInteface<List<Goods>> loadDataInteface) {
@@ -55,7 +145,7 @@ public class ModelClient {
         });
     }
 
-    public static void loadSearchGoods(final LoadDataInteface<List<Goods>> inteface ) {
+    public static void loadSearchGoods(final LoadDataInteface<List<Goods>> inteface) {
 
         retrofit.getGoodsBySearchApi().enqueue(new Callback<List<Goods>>() {
             @Override
@@ -71,7 +161,7 @@ public class ModelClient {
     }
 
     public static void loadCartGoods(final LoadDataInteface<List<ShopCartGoods>> inteface) {
-        retrofit.getCartGoodsApi().subscribeOn(Schedulers.io())
+        /*retrofit.getCartGoodsApi().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<List<ShopCartGoods>>>() {
                     @Override
@@ -89,6 +179,6 @@ public class ModelClient {
                         List<ShopCartGoods> body = listResponse.body();
                         inteface.onDataLoaded(body);
                     }
-                });
+                });*/
     }
 }

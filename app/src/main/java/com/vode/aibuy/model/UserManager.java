@@ -61,10 +61,6 @@ public class UserManager {
         });*/
     }
 
-    public static void login(String name, String pass, final UserManagerInterface manager) {
-
-
-    }
 
     public static void saveUser(User user) {
 
@@ -138,7 +134,6 @@ public class UserManager {
 
     public static void loginThird(String userId, String nameStr, String userIcon, final UserManagerInterface manager) {
     }
-
 
     public static void sendChange() {
 

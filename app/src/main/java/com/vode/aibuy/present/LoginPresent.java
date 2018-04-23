@@ -12,12 +12,12 @@ import com.vode.aibuy.view.LoginView;
 
 public class LoginPresent extends MvpBasePresenter<LoginView> {
 
-    public void loadData() {
+    public void loadData(String name,String pass) {
 
         if (!isViewAttached()) {
             return;
         }
-        ModelClient.loadUser(new LoadDataInteface<User>() {
+        ModelClient.loadUser(name,pass,new LoadDataInteface<User>() {
             @Override
             public void onDataLoaded(User data) {
                 getView().loginSucccess(data);
