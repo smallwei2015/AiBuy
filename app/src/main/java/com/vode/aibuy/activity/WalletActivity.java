@@ -9,12 +9,22 @@ import android.widget.TextView;
 
 import com.vode.aibuy.R;
 import com.vode.aibuy.adapter.WalletRecordAdapter;
+import com.vode.aibuy.bean.Result1;
 import com.vode.aibuy.bean.WalletRecord;
+import com.vode.aibuy.model.ModelClient;
+import com.vode.aibuy.model.UserManager;
 import com.vode.aibuy.present.WalletPresent;
+import com.vode.aibuy.utils.SignUtils;
+import com.vode.aibuy.utils.UIUtils;
 import com.vode.aibuy.view.BaseView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class WalletActivity extends BaseActivity<BaseView<List<WalletRecord>>,WalletPresent> implements BaseView<List<WalletRecord>>, View.OnClickListener {
 
@@ -29,7 +39,42 @@ public class WalletActivity extends BaseActivity<BaseView<List<WalletRecord>>,Wa
 
     @Override
     void initData() {
+        loadPoint("all");
+    }
 
+    private void loadPoint(String type) {
+
+        /*type
+        user_id
+        count
+        first_Row
+        page_count*/
+
+        Map<String, String> map = SignUtils.getMap();
+        map.put("type",type);
+        map.put("user_id", UserManager.getAppuserId());
+        String result = SignUtils.getResult(map, 2);
+
+        ModelClient.retrofit.point(result)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        adapter.showErrorView();
+                        UIUtils.showError();
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+
+                    }
+                });
     }
 
     @Override

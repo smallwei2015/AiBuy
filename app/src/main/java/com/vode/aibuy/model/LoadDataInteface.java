@@ -10,4 +10,6 @@ public interface LoadDataInteface<T> {
 
     void onDataLoadFailed(Throwable e);
 
+
+
 }

@@ -15,7 +15,6 @@ import com.vode.aibuy.model.ModelClient;
 import com.vode.aibuy.utils.SignUtils;
 import com.vode.aibuy.utils.UIUtils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import rx.Observer;
@@ -102,35 +101,7 @@ public class RegisterActivity extends BaseActivityWithoutMVP {
             getVerify.setEnabled(false);
             handler.sendEmptyMessage(100);
 
-
-            Map<String, String> map = new HashMap<>();
-            map.put("mobile",phone);
-            String result = SignUtils.getResult(map);
-
-            ModelClient.retrofit.userSms(result)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<Result1>() {
-                        @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-                            UIUtils.showToast("网络连接失败");
-                        }
-
-                        @Override
-                        public void onNext(Result1 result1) {
-                            if (result1.getCode()==200) {
-                                UIUtils.showToast("获取成功");
-                            }else {
-                                UIUtils.showToast(result1.getMessage());
-                            }
-                        }
-                    });
-
+            ModelClient.getSms(phone);
 
         }
 
@@ -201,6 +172,8 @@ public class RegisterActivity extends BaseActivityWithoutMVP {
                         public void onNext(Result1 result1) {
                             if (result1.getCode()==200) {
 
+                                UIUtils.showToast("注册成功");
+                                finish();
                             }else {
                                 UIUtils.showToast(result1.getMessage());
                             }

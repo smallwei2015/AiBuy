@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
+import com.vode.aibuy.model.UserManager;
+
 /**
  * Created by cj on 2018/3/12.
  */
@@ -27,10 +29,15 @@ public abstract class AutoFreshFragment extends BaseFragment {
         broadcastManager=LocalBroadcastManager.getInstance(activity);
         IntentFilter filter = new IntentFilter();
         filter.addAction(AUTO_REFRESH);
+        filter.addAction(UserManager.action_in);
+        filter.addAction(UserManager.action_out);
+        filter.addAction(UserManager.action_change);
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (intent.getAction().equals(AUTO_REFRESH)) {
+                    fresh(intent);
+                }else {
                     fresh(intent);
                 }
             }

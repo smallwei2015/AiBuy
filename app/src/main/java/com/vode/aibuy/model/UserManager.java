@@ -2,6 +2,7 @@ package com.vode.aibuy.model;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
 import com.vode.aibuy.BaseApplication;
@@ -32,7 +33,7 @@ public class UserManager {
 
     public static String getAppuserId() {
         if (cUser != null)
-            return cUser.getAppuserId() + "";
+            return cUser.getUser_id() + "";
         else
             return "";
     }
@@ -72,7 +73,7 @@ public class UserManager {
     private static void sendLogin() {
         Intent intent = new Intent();
         intent.setAction(action_in);
-        BaseApplication.getInstance().sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(BaseApplication.getInstance()).sendBroadcast(intent);
     }
 
     public static void loginOut(View view, final UserManagerInterface manager) {
@@ -121,7 +122,7 @@ public class UserManager {
     private static void sendLoginOut() {
         Intent intent = new Intent();
         intent.setAction(action_out);
-        BaseApplication.getInstance().sendBroadcast(intent);
+        LocalBroadcastManager.getInstance(BaseApplication.getInstance()).sendBroadcast(intent);
     }
 
     public static void register(String name, String pass, String nickname, String address, String path, final UserManagerInterface manager) {
@@ -130,6 +131,15 @@ public class UserManager {
 
     public static boolean isLogin() {
         return cUser != null;
+    }
+
+    public static boolean isLoginElse(){
+        if (isLogin()){
+            return true;
+        }else {
+            toLogin();
+            return false;
+        }
     }
 
     public static void loginThird(String userId, String nameStr, String userIcon, final UserManagerInterface manager) {

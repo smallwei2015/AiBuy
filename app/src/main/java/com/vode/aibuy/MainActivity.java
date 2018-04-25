@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     fragmentTransaction.replace(R.id.main_contain,cartFragment);
                     fragmentTransaction.commit();
+                    tag.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_user:
                     fragmentTransaction.replace(R.id.main_contain,userCenterFragment);
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public ShoppingCartFragment cartFragment;
     public UserCenterFragment userCenterFragment;
     public long lastTime;
+    public TextView tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +78,10 @@ public class MainActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
-        TextView textView = BottomNavigationViewHelper.addTag(navigation, 3);
-        textView.setText("2");
-        textView.setVisibility(View.VISIBLE);
+
+        tag = BottomNavigationViewHelper.addTag(navigation, 3);
+        tag.setText("2");
+        tag.setVisibility(View.VISIBLE);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this, DescriptionActivity.class));
 
         startActivity(new Intent(this, LoginActivity.class));
+        //startActivity(new Intent(this, WebActivity.class));
 
     }
 

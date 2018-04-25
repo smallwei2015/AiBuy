@@ -1,6 +1,7 @@
 package com.vode.aibuy.activity;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,6 +25,9 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.Glide;
 import com.vode.aibuy.R;
 import com.vode.aibuy.model.CirclrTransformation;
+import com.vode.aibuy.model.LoadDataInteface;
+import com.vode.aibuy.model.ModelClient;
+import com.vode.aibuy.model.UserManager;
 import com.vode.aibuy.userview.BasePopUpWindow;
 import com.vode.aibuy.utils.FileUtils;
 import com.vode.aibuy.utils.UIUtils;
@@ -250,5 +254,26 @@ public class SettingActivity extends BaseActivityWithoutMVP {
         Uri uri = data.getData();
         String imagePath = getImagePath(uri, null);
         displayImage(imagePath);
+    }
+
+    public void btn_out(View view) {
+        final ProgressDialog dialog=new ProgressDialog(mActivity);
+        dialog.setTitle("退出中...");
+        dialog.show();
+
+        ModelClient.loginOut(UserManager.getAppuserId(), new LoadDataInteface() {
+            @Override
+            public void onDataLoaded(Object data) {
+                UserManager.loginOutWithoutDelay();
+                dialog.dismiss();
+
+                finish();
+            }
+
+            @Override
+            public void onDataLoadFailed(Throwable e) {
+                dialog.dismiss();
+            }
+        });
     }
 }

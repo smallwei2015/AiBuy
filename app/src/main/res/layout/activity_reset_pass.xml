@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vode.aibuy.activity.ResetPassActivity"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/layout_top"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/middle_padding"
+        android:background="@drawable/login_input_bg"
+        android:id="@+id/pass_raw"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            style="@style/normal_img_style"
+            android:src="@mipmap/password"/>
+
+        <EditText
+            style="@style/login_edit_style"
+            android:id="@+id/pass_raw_edit"
+            android:inputType="phone"
+            android:hint="原始密码"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/middle_padding"
+        android:background="@drawable/login_input_bg"
+        android:id="@+id/pass"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/normal_img_style"
+            android:src="@mipmap/password"/>
+
+        <EditText
+            style="@style/login_edit_style"
+            android:id="@+id/pass_edit"
+            android:inputType="phone"
+            android:hint="密码"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/middle_padding"
+        android:background="@drawable/login_input_bg"
+        android:id="@+id/pass1"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/normal_img_style"
+            android:src="@mipmap/password"/>
+
+        <EditText
+            style="@style/login_edit_style"
+            android:id="@+id/pass1_edit"
+            android:inputType="phone"
+            android:hint="确认密码"/>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp50"/>
+    <TextView
+        style="@style/login_btn"
+        android:text="确定"
+        android:id="@+id/register"
+        android:onClick="btn_register"/>
+</LinearLayout>

@@ -34,7 +34,7 @@
                     android:id="@+id/user_name"
                     style="@style/normal_white_text_style"
                     android:layout_centerInParent="true"
-                    android:text="用户名"
+                    android:text="未登陆"
                     android:textSize="@dimen/sp16" />
 
 
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="@dimen/dp20"
                 android:layout_marginRight="@dimen/dp20"
                 android:transitionName="@string/tran_name"
-                android:src="@color/bgdark" />
+                />
 
             <LinearLayout
                 android:id="@id/id1"
@@ -81,10 +81,9 @@
 
                     <TextView
                         style="@style/wrap_text_style"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/textmiddle"
                         android:textSize="@dimen/sp15"
-
                         android:id="@+id/user_order"/>
 
                     <TextView
@@ -100,7 +99,7 @@
 
                     <TextView
                         style="@style/wrap_text_style"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/textmiddle"
                         android:textSize="@dimen/sp15"
                         android:id="@+id/user_collect"/>
@@ -120,7 +119,7 @@
 
                     <TextView
                         style="@style/wrap_text_style"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/textmiddle"
                         android:textSize="@dimen/sp15"
                         android:id="@+id/user_comment"/>
@@ -152,7 +151,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="@color/red"
                     android:textSize="@dimen/sp_12"
 
@@ -175,7 +174,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="@color/red"
                     android:textSize="@dimen/sp_12"
 
@@ -198,7 +197,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="@color/red"
                     android:textSize="@dimen/sp_12"
                     android:id="@+id/user_score"/>
@@ -261,7 +260,7 @@
                     <com.vode.aibuy.userview.NotificationView
                         style="@style/notification_style"
                         app:noti_size="@dimen/sp10"
-                        android:text="1"
+                        android:text="0"
                         android:id="@+id/user_order1_count"
                         />
 
@@ -287,7 +286,7 @@
                     <com.vode.aibuy.userview.NotificationView
                         style="@style/notification_style"
                         app:noti_size="@dimen/sp10"
-                        android:text="1"
+                        android:text="0"
                         android:id="@+id/user_order2_count"
                         />
 
@@ -313,7 +312,7 @@
                     <com.vode.aibuy.userview.NotificationView
                         style="@style/notification_style"
                         app:noti_size="@dimen/sp10"
-                        android:text="1"
+                        android:text="0"
                         android:id="@+id/user_order3_count"
                         />
 
@@ -338,7 +337,7 @@
                     <com.vode.aibuy.userview.NotificationView
                         style="@style/notification_style"
                         app:noti_size="@dimen/sp10"
-                        android:text="1"
+                        android:text="0"
                         android:id="@+id/user_order4_count"
                         />
 

@@ -1,5 +1,6 @@
 package com.vode.aibuy.activity;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -49,7 +50,11 @@ public class CouponActivity extends BaseActivityWithoutMVP {
 
             @Override
             public Fragment getItem(int position) {
-                return new CouponFragment();
+                CouponFragment couponFragment = new CouponFragment();
+                Bundle args = new Bundle();
+                args.putInt("flag",position);
+                couponFragment.setArguments(args);
+                return couponFragment;
             }
 
             @Override
@@ -60,5 +65,7 @@ public class CouponActivity extends BaseActivityWithoutMVP {
         rec.setAdapter(adapter);
         tab.setupWithViewPager(rec);
     }
+
+
 
 }

@@ -40,7 +40,7 @@ public interface RetrofitInteface {
 
     @FormUrlEncoded
     @POST("api.php/User/login")
-    Observable<Result1<User>> userLogin(@Field("params") String params);
+    Observable<Result1> userLogin(@Field("params") String params);
 
     @FormUrlEncoded
     @POST("api.php/Sms/sendsms")
@@ -58,4 +58,24 @@ public interface RetrofitInteface {
     @FormUrlEncoded
     @POST("api.php/User/user_logout")
     Observable<Result1> userOut(@Field("params") String content);
+
+    @FormUrlEncoded
+    @POST("api.php/User/forget_pwd")
+    Observable<Result1> checkPhone(@Field("params") String content);
+
+    @FormUrlEncoded
+    @POST("api.php/User/set_pwd")
+    Observable<Result1> resetPass(@Field("params") String content);
+
+    @FormUrlEncoded
+    @POST("api.php/User/account")
+    Observable<Result1> balance(@Field("params") String content);
+
+    @FormUrlEncoded
+    @POST("api.php/User/coupun")
+    Observable<Result1> coupon(@Field("params") String content);
+
+    @FormUrlEncoded
+    @POST("api.php/User/points")
+    Observable<Result1> point(@Field("params") String content);
 }

@@ -138,7 +138,9 @@
         <activity android:name=".activity.CouponActivity" />
         <activity android:name=".activity.BalanceActivity" />
         <activity android:name=".activity.SearchConditionActivity" />
-        <activity android:name=".activity.DescriptionActivity"></activity>
+        <activity android:name=".activity.DescriptionActivity" />
+        <activity android:name=".activity.ResetPassActivity" />
+        <activity android:name=".activity.WebActivity"></activity>
     </application>
 
 </manifest>

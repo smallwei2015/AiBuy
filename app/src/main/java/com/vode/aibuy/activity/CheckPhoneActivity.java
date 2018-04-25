@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.vode.aibuy.R;
+import com.vode.aibuy.model.LoadDataInteface;
+import com.vode.aibuy.model.ModelClient;
 import com.vode.aibuy.utils.UIUtils;
 
 public class CheckPhoneActivity extends BaseActivityWithoutMVP {
@@ -51,6 +53,8 @@ public class CheckPhoneActivity extends BaseActivityWithoutMVP {
         }
     });
     private AlertDialog dialog;
+    public String phone;
+    public String key;
 
 
     @Override
@@ -85,17 +89,25 @@ public class CheckPhoneActivity extends BaseActivityWithoutMVP {
 
 
     public void getVer() {
+
+        phone = phoneEdit.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)){
+            UIUtils.showToast("请输入手机号");
+            return;
+        }
         if (getVerify.isEnabled()) {
             getVerify.setEnabled(false);
             handler.sendEmptyMessage(100);
+
+            ModelClient.getSms(phone);
         }
 
     }
 
     private void check() {
 
-        final String phone = phoneEdit.getText().toString();
-        String key = verifyEdit.getText().toString();
+        phone = phoneEdit.getText().toString().trim();
+        key = verifyEdit.getText().toString().trim();
 
         if (checkPhoneAndKey(phone, key)) {
 
@@ -103,26 +115,24 @@ public class CheckPhoneActivity extends BaseActivityWithoutMVP {
             dialog.setMessage("加载中...");
             dialog.show();
 
+            ModelClient.checkPhone(phone, key, new LoadDataInteface() {
+                @Override
+                public void onDataLoaded(Object data) {
+                    dialog.dismiss();
+
+                    Intent intent=new Intent(mActivity,ResetPassActivity.class);
+                    intent.putExtra("flag",0);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onDataLoadFailed(Throwable e) {
+
+                    dialog.dismiss();
+                }
+            });
+
         }
-    }
-
-    private void checkSuccess() {
-
-        Intent intent = new Intent(mActivity, RegisterActivity.class);
-        intent.putExtra("phone", phoneEdit.getText().toString());
-        startActivity(intent);
-
-        finish();
-
-    }
-
-    private void changePhone() {
-
-        final ProgressDialog dialog = new ProgressDialog(mActivity);
-        dialog.setMessage("修改中...");
-
-        dialog.show();
-
     }
 
 

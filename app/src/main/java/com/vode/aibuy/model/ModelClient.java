@@ -1,5 +1,8 @@
 package com.vode.aibuy.model;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
 import com.vode.aibuy.bean.Goods;
 import com.vode.aibuy.bean.Result1;
 import com.vode.aibuy.bean.ShopCartGoods;
@@ -26,6 +29,7 @@ import rx.schedulers.Schedulers;
 public class ModelClient {
 
     public static RetrofitInteface retrofit = RetrofitApi.build().create(RetrofitInteface.class);
+    public static Gson gson=new Gson();
 
 
     public static void loadUser(String name, String pass,
@@ -42,7 +46,7 @@ public class ModelClient {
         retrofit.userLogin(result)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Result1<User>>() {
+                .subscribe(new Observer<Result1>() {
                     @Override
                     public void onCompleted() {
 
@@ -50,13 +54,132 @@ public class ModelClient {
 
                     @Override
                     public void onError(Throwable e) {
-                        UIUtils.showToast("网络连接失败" + e.getMessage());
+                        Log.w("vode",e.getMessage());
+                        UIUtils.showToast("网络连接失败");
                     }
 
                     @Override
-                    public void onNext(Result1<User> userResult1) {
-                        User body = userResult1.getResult();
-                        user.onDataLoaded(body);
+                    public void onNext(Result1 result1) {
+                        /*这样写的原因在于，成功和失败返回数据类型不一致[]和user,那么就只能写成他们的父类object，然后再去判断
+                        * ，也不可以直接获取，因为直接获取是解析后的字符串，不是一个json串*/
+                        if (result1.getCode()==200) {
+
+                            String s = gson.toJson(result1.getResult());
+
+                            if (s.length()>2){
+                                User body = gson.fromJson(s, User.class);
+                                Log.w("vode",body.toString());
+                                user.onDataLoaded(body);
+                            }
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                        }
+                    }
+
+                });
+    }
+
+    public static void getSms(String phone){
+        Map<String, String> map = SignUtils.getMap();
+        map.put("mobile",phone);
+        String result = SignUtils.getResult(map);
+
+        retrofit.userSms(result)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UIUtils.showToast("网络连接失败");
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+                        if (result1.getCode()==200) {
+                            UIUtils.showToast("获取成功");
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                        }
+                    }
+                });
+
+    }
+
+    public static void checkPhone(String phone, String sms, final LoadDataInteface callback){
+        Map<String, String> map = SignUtils.getMap();
+        map.put("mobile",phone);
+        map.put("verify",sms);
+        String result = SignUtils.getResult(map);
+
+        retrofit.checkPhone(result)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UIUtils.showError();
+                        callback.onDataLoadFailed(e);
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+
+                        if (result1.getCode()==200) {
+                            callback.onDataLoaded(result1);
+                            UIUtils.showToast("验证成功");
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                            callback.onDataLoadFailed(null);
+                        }
+                    }
+                });
+
+    }
+
+    public static void resetPass(String password,final LoadDataInteface callback){
+
+        Map<String, String> map = SignUtils.getMap();
+
+        map.put("password",password);
+        map.put("password_confirm",password);
+        //map.put("user_id",user_id);
+
+        String result = SignUtils.getResult(map);
+
+        retrofit.resetPass(result)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Result1>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        callback.onDataLoadFailed(e);
+                        UIUtils.showError();
+                    }
+
+                    @Override
+                    public void onNext(Result1 result1) {
+                        callback.onDataLoaded(result1);
+
+                        if (result1.getCode()==200){
+                            UIUtils.showToast("重置成功");
+                        }else {
+                            UIUtils.showToast(result1.getMessage());
+                        }
                     }
                 });
     }
@@ -98,7 +221,7 @@ public class ModelClient {
                 });
     }
 
-    public static void loginOut(String user_id){
+    public static void loginOut(String user_id, final LoadDataInteface callback){
 
         Map<String, String> map = SignUtils.getMap();
         map.put("user_id",user_id);
@@ -118,14 +241,17 @@ public class ModelClient {
                     @Override
                     public void onError(Throwable e) {
                         UIUtils.showError();
+                        callback.onDataLoadFailed(e);
                     }
 
                     @Override
                     public void onNext(Result1 result1) {
                         if (result1.getCode()==200){
-
+                            UIUtils.showToast("退出登录");
+                            callback.onDataLoaded(result1);
                         }else {
                             UIUtils.showToast(result1.getMessage());
+                            callback.onDataLoadFailed(null);
                         }
                     }
                 });
@@ -181,4 +307,5 @@ public class ModelClient {
                     }
                 });*/
     }
+
 }

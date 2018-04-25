@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.vode.aibuy.R;
 import com.vode.aibuy.activity.BalanceActivity;
 import com.vode.aibuy.activity.CollectionActivity;
@@ -26,10 +27,14 @@ import com.vode.aibuy.activity.SettingActivity;
 import com.vode.aibuy.activity.WalletActivity;
 import com.vode.aibuy.activity.WithDrawActivity;
 import com.vode.aibuy.adapter.UserGridAdapter;
+import com.vode.aibuy.bean.User;
 import com.vode.aibuy.bean.UserItem;
+import com.vode.aibuy.model.UserManager;
 import com.vode.aibuy.userview.NoScrollGridView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,36 +77,35 @@ public class UserCenterFragment extends AutoFreshFragment implements View.OnClic
     void initView(View view) {
 
         view.findViewById(R.id.user_setting).setOnClickListener(this);
-        tv_name = ((TextView) view.findViewById(R.id.user_name));
-        tv_date = ((TextView) view.findViewById(R.id.user_date));
-        im_icon = ((ImageView) view.findViewById(R.id.user_icon));
+        tv_name = (TextView) view.findViewById(R.id.user_name);
+        tv_date = (TextView) view.findViewById(R.id.user_date);
+        im_icon = (ImageView) view.findViewById(R.id.user_icon);
 
 
 
         view.findViewById(R.id.user_order_parent).setOnClickListener(this);
-        tv_order = ((TextView) view.findViewById(R.id.user_order));
-        tv_order.setText("0");
+        tv_order = (TextView) view.findViewById(R.id.user_order);
 
         view.findViewById(R.id.user_collect_parent).setOnClickListener(this);
-        tv_collect = ((TextView) view.findViewById(R.id.user_collect));
-        tv_collect.setText("10");
+        tv_collect = (TextView) view.findViewById(R.id.user_collect);
+
 
         view.findViewById(R.id.user_comment_parent).setOnClickListener(this);
-        tv_comment = ((TextView) view.findViewById(R.id.user_comment));
-        tv_comment.setText("10");
+        tv_comment = (TextView) view.findViewById(R.id.user_comment);
+
 
 
         view.findViewById(R.id.user_balance_parent).setOnClickListener(this);
-        tv_balance = ((TextView) view.findViewById(R.id.user_balance));
-        tv_balance.setText("100.00");
+        tv_balance = (TextView) view.findViewById(R.id.user_balance);
+
 
         view.findViewById(R.id.user_coupon_parent).setOnClickListener(this);
-        tv_coupon = ((TextView) view.findViewById(R.id.user_coupon));
-        tv_coupon.setText("20.10");
+        tv_coupon = (TextView) view.findViewById(R.id.user_coupon);
+
 
         view.findViewById(R.id.user_score_parent).setOnClickListener(this);
-        tv_score = ((TextView) view.findViewById(R.id.user_score));
-        tv_score.setText("100");
+        tv_score = (TextView) view.findViewById(R.id.user_score);
+
 
 
         view.findViewById(R.id.user_order1).setOnClickListener(this);
@@ -109,15 +113,11 @@ public class UserCenterFragment extends AutoFreshFragment implements View.OnClic
         view.findViewById(R.id.user_order3).setOnClickListener(this);
         view.findViewById(R.id.user_order4).setOnClickListener(this);
 
-        tv_order1Count = ((TextView) view.findViewById(R.id.user_order1_count));
-        tv_order2Count = ((TextView) view.findViewById(R.id.user_order2_count));
-        tv_order3Count = ((TextView) view.findViewById(R.id.user_order3_count));
-        tv_order4Count = ((TextView) view.findViewById(R.id.user_order4_count));
+        tv_order1Count = (TextView) view.findViewById(R.id.user_order1_count);
+        tv_order2Count = (TextView) view.findViewById(R.id.user_order2_count);
+        tv_order3Count = (TextView) view.findViewById(R.id.user_order3_count);
+        tv_order4Count = (TextView) view.findViewById(R.id.user_order4_count);
 
-        tv_order1Count.setText("2");
-        tv_order2Count.setText("1");
-        tv_order3Count.setText("0");
-        tv_order4Count.setText("100");
 
         view.findViewById(R.id.user_allorder).setOnClickListener(this);
 
@@ -127,10 +127,14 @@ public class UserCenterFragment extends AutoFreshFragment implements View.OnClic
         gridView.setOnItemClickListener(this);
         gridView.setAdapter(adapter);
 
+
+        freshData();
     }
 
     @Override
     void initData() {
+
+
         UserItem e = new UserItem("我的二维码", R.mipmap.user5);
         datas.add(e);
         e = new UserItem("地址管理", R.mipmap.user6);
@@ -160,11 +164,16 @@ public class UserCenterFragment extends AutoFreshFragment implements View.OnClic
 
     @Override
     void fresh(Intent intent) {
-
+        freshData();
     }
 
     @Override
     public void onClick(View v) {
+
+        if (!UserManager.isLoginElse()){
+            return;
+        }
+
         Intent intent;
         switch (v.getId()) {
             case R.id.user_setting:
@@ -276,6 +285,53 @@ public class UserCenterFragment extends AutoFreshFragment implements View.OnClic
                 intent=new Intent(activity, FeedBackActivity.class);
                 startActivity(intent);
                 break;
+        }
+    }
+
+
+    private void  freshData(){
+        if (UserManager.isLogin()) {
+            User user = UserManager.getUser();
+
+
+
+            tv_name.setText(user.getNickname());
+
+            Date date = new Date(user.getIs_plus_time());
+
+            String format = new SimpleDateFormat("yyyy-MM-dd").format(date)+"到期";
+
+            tv_date.setText(user.getLevel()+ format);
+
+            tv_collect.setText(user.getOther().getGoods_collect_count()+"");
+            tv_comment.setText(user.getOther().getComment_count()+"");
+            tv_coupon.setText(user.getOther().getCoupon_count()+"");
+            tv_order.setText(user.getOther().getOrder_count()+"");
+            tv_balance.setText(user.getUser_money());
+            tv_score.setText(user.getPay_points());
+
+            tv_order1Count.setText("0");
+            tv_order2Count.setText("0");
+            tv_order3Count.setText("0");
+            tv_order4Count.setText("0");
+
+            Glide.with(activity).load(user.getHead_pic()).placeholder(R.color.bgblack).into(im_icon);
+        }else {
+
+            im_icon.setImageResource(R.color.bgdark);
+            tv_name.setText("未登陆");
+            tv_date.setText("");
+            tv_order.setText("0");
+            tv_collect.setText("0");
+            tv_comment.setText("0");
+            tv_balance.setText("0.00");
+            tv_coupon.setText("0.00");
+            tv_score.setText("0");
+
+            tv_order1Count.setText("0");
+            tv_order2Count.setText("0");
+            tv_order3Count.setText("0");
+            tv_order4Count.setText("0");
         }
     }
 }

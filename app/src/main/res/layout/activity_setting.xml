@@ -44,6 +44,7 @@
         android:background="@color/bglight"
         android:padding="@dimen/dp1"
         android:layout_marginTop="-20dp"
+        android:visibility="gone"
         >
 
 
@@ -214,5 +215,12 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        style="@style/login_btn"
+        android:text="退出登录"
+        android:onClick="btn_out"/>
 </RelativeLayout>
 

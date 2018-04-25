@@ -7,16 +7,8 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    private long appuserId;
-    private String phone;
-    private String nickName;
-    private String userName;
-    private String headIcon;
-    private int sex;//1男2女3没有选过
-    private String recommendCode;
+
     private long expiration;
-    private int userType;
-    private String communityName;
     /**
      * user_id : 2
      * mobile : 17746547747
@@ -37,7 +29,7 @@ public class User implements Serializable {
     private String level;
     private String pay_points;
     private String user_money;
-    private int is_plus_time;
+    private Long is_plus_time;
     private String access_token;
     private OtherBean other;
 
@@ -50,77 +42,6 @@ public class User implements Serializable {
         this.expiration = expiration;
     }
 
-    public long getAppuserId() {
-        return appuserId;
-    }
-
-    public void setAppuserId(long appuserId) {
-        this.appuserId = appuserId;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getHeadIcon() {
-        return headIcon;
-    }
-
-    public void setHeadIcon(String headIcon) {
-        this.headIcon = headIcon;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
-    public String getRecommendCode() {
-        return recommendCode;
-    }
-
-    public void setRecommendCode(String recommendCode) {
-        this.recommendCode = recommendCode;
-    }
-
-    public int getUserType() {
-        return userType;
-    }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
-    }
-
-    public String getCommunityName() {
-        return communityName;
-    }
-
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
-    }
 
     public int getUser_id() {
         return user_id;
@@ -178,11 +99,11 @@ public class User implements Serializable {
         this.user_money = user_money;
     }
 
-    public int getIs_plus_time() {
+    public Long getIs_plus_time() {
         return is_plus_time;
     }
 
-    public void setIs_plus_time(int is_plus_time) {
+    public void setIs_plus_time(Long is_plus_time) {
         this.is_plus_time = is_plus_time;
     }
 
